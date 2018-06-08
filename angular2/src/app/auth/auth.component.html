@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <video poster="" id="bgvid" playsinline autoplay loop muted>
+    <source src="http://ak5.picdn.net/shutterstock/videos/12273485/preview/stock-footage-happy-young-man-dancing-in-kitchen-wearing-pajamas-in-the-morning-listening-to-music-on-smartphone-a.mp4" type="video/mp4">
+  </video>
+  <div class="rainbow"></div>
+  <div class="body">
+    <div class="auth-window" (click)="$event.stopPropagation()">
+      <div class="top-block">
+        <button [ngClass]="{'clicked': isLoginPage}" (click)="handleLoginPress($event)">Login</button>
+        <button [ngClass]="{'clicked': !isLoginPage}" (click)="handleRegistrationPress($event)">Registration</button>
+      </div>
+      <login *ngIf="isLoginPage"></login>
+      <registration *ngIf="!isLoginPage"></registration>
+    </div>
+    <h5>Let Your Music Inspire You</h5>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+header {
+  border-bottom:1px solid darkgrey;
+  height: 100%;
+  width: 100%;
+  background: #f5f5f5;
+  position: relative;
+}
+
+header span {
+  margin: 16px;
+  line-height: 100%;
+  font-size: 20px;
+  font-weight: 300;
+  display: inline-block;
+}
+
+.user-info {
+  display: inline-block;
+  height: 100%;
+  float: right;
+}
+
+.user-info img {
+  height: 80%;
+}
+
+.user-info span {
+  margin: 0 10px;
+  line-height: 100%;
+  font-size: 14px;
+}
+
+.user-info button {
+  background: none;
+  border: none;
+  height: 100%;
+  padding: 0 15px;
+  font-size: 15px;
+  background: #e5e5e5;
+}
+
+.user-info button:hover {
+  background: #f0f0f0;
+}

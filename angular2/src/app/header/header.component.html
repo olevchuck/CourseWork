@@ -1,0 +1,8 @@
+<header>
+  <span class="header-logo">{{appName}}</span>
+  <div class="user-info" *ngIf="userLogin">
+    <span>{{userLogin}}</span>
+    <img src="../../assets/unnamed.png">
+    <button (click)="logout()">Logout</button>
+  </div>
+</header>

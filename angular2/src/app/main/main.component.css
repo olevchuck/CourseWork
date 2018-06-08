@@ -1,0 +1,182 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 56px 0 0 0;
+  overflow: hidden;
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+}
+
+.body div {
+  padding: 0;
+}
+
+* {
+  border-collapse: collapse;
+}
+
+.playlistData, .music {
+  border: 1px solid lightgray;
+}
+
+.playlists, .recommendations, .songs {
+  border-bottom: 1px solid lightgray;
+}
+
+.songs {
+  border-right: 1px solid lightgray;
+}
+
+.header {
+  border-bottom: 1px solid lightgray;
+}
+
+.body .header {
+  font-size: 14px;
+  padding: 16px;
+  font-weight: bolder;
+  color: rgb(154,154,154);
+}
+
+.audio {
+  height: 60px;
+}
+
+.playlistData {
+  height: 100%;
+}
+
+.music {
+  height: 100%;
+}
+
+.recommendations, .songs, .playlists {
+  height: calc(100% - 60px);
+}
+
+.songs, .playlists, .recommendations {
+  position: relative;
+}
+
+.notification {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: gray;
+  font-size: 14px;
+}
+
+.songList {
+  border: none;
+  height: calc(100% - 60px);
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.songList li {
+  list-style-type: none;
+  padding: 7px;
+  cursor: pointer;
+  position: relative;
+  padding-right: 20px;
+}
+
+.songList li .author {
+  color: #487fb5;
+  font-weight: bolder;
+}
+
+.songList li:hover {
+  background: #487fb5;
+  color: #fff;
+}
+
+.songList li:hover .author {
+  color: #fff;
+}
+
+.songList li.selected {
+  background: #487fb5;
+  color: #fff;
+}
+
+.songList li.selected .author {
+  color: #fff;
+}
+
+.songList li .duration {
+  float: right;
+}
+
+.audio {
+  padding: 0;
+}
+
+.audio label, .audio audio {
+  height: 30px;
+  width: 100%;
+  margin: 0;
+  font-weight: normal;
+}
+
+.audio label {
+  padding: 0 10px;
+  line-height: 30px;
+  background: #fafafa;
+}
+
+.audio label.unactive {
+  color: #bebebe;
+}
+
+.input-group {
+  padding: 5px!important;
+  border-collapse: separate;
+}
+
+.playlistList {
+  border: none;
+  height: calc(100% - 60px);
+  overflow-y: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.playlistList li {
+  list-style-type: none;
+  padding: 7px;
+  cursor: pointer;
+  position: relative;
+  padding-right: 20px;
+}
+
+.playlistList li:hover {
+  background: #487fb5;
+  color: #fff;
+}
+
+.playlistList li.selected {
+  background: #487fb5;
+  color: #fff;
+}
+
+
+.plus, .cross {
+  color: green;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+}
+
+.cross {
+  color: red;
+}

@@ -1,0 +1,63 @@
+<div class="wrapper">
+  <div class="body">
+    <div class="playlistData col-lg-3 col-md-3 col-sm-3 col-xs-3">
+      <div class="playlists">
+        <div class="header">
+          Playlists
+        </div>
+        <ul class="playlistList" *ngIf="playlists.length > 0">
+          <li *ngFor="let playlist of playlists" (click)="selectPlaylist(playlist)" [ngClass]="{'selected': selectedPlaylist === playlist}">
+            <span class="name">{{playlist.PlaylistName}}</span>
+            <span class="cross" (click)="$event.stopPropagation();deletePlaylist(playlist.ID)">&#10006;</span>
+          </li>
+        </ul>
+        <div class="notification" *ngIf="playlists.length === 0">
+          No playlists avaliable
+        </div>
+      </div>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Playlist name..." ngModel name="playlistName" #playlistName required>
+        <span class="input-group-btn">
+        <button class="btn btn-success" type="button" [disabled]="!playlistName.checkValidity()" (click)="addPlaylist(playlistName.value)">+</button>
+      </span>
+      </div>
+    </div>
+    <div class="music col-lg-9 col-md-9 col-sm-9 col-xs-9">
+      <div class="songs col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="header">
+          Songs
+        </div>
+        <ul class="songList" *ngIf="playlistSongs.length > 0">
+          <li *ngFor="let song of playlistSongs" (click)="selectSong(song)" [ngClass]="{'selected': selectedSong === song}">
+            <span class="author">{{song.Artist}}</span> - {{song.SongName}}
+            <span class="duration">{{song.Length | secondsToTime}}</span>
+            <span class="cross" (click)="$event.stopPropagation();deleteFromPlaylist(song)">&#10006;</span>
+          </li>
+        </ul>
+        <div class="notification" *ngIf="playlistSongs.length === 0">
+          No songs in current playlists
+        </div>
+      </div>
+      <div class="recommendations col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="header">
+          Recommendations
+        </div>
+        <ul class="songList" *ngIf="recommendations.length > 0">
+          <li *ngFor="let song of recommendations" (click)="selectSong(song)" [ngClass]="{'selected': selectedSong === song}">
+            <span class="author">{{song.Artist}}</span> - {{song.SongName}}
+            <span class="plus" *ngIf="selectedPlaylist" (click)="$event.stopPropagation();insertInPlaylist(song.ID)">&#10010;</span>
+            <span class="duration">{{song.Length | secondsToTime}}</span>
+          </li>
+        </ul>
+        <div class="notification" *ngIf="recommendations.length === 0">
+          No recommendations for you
+        </div>
+      </div>
+      <div class="audio col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <label *ngIf="selectedSong"><span class="author">{{selectedSong.Artist}}</span> - {{selectedSong.SongName}}</label>
+        <label *ngIf="!selectedSong" class="unactive">Please, select a song...</label>
+        <audio controls src={{selectedSong?selectedSong.Adress:null}} autoplay #audio></audio>
+      </div>
+    </div>
+  </div>
+</div>
